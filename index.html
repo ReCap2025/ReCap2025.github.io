@@ -33,6 +33,18 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <style>
+    /* Ensure images scale responsively */
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+    }
+    .centered-caption {
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+  </style>
 </head>
 <body>
 
@@ -64,7 +76,7 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="content has-text-centered">
-        <img src="static/images/teaser_v2.png" alt="geometric reasoning" width="100%"/>
+        <img src="static/images/teaser_v2.png" alt="geometric reasoning" class="responsive-img"/>
         <p>
           In each trajectory, we identify the cause of failure modes and leverage this information
           to iteratively improve compositional foundation models for robotic decision-making.
@@ -102,7 +114,7 @@
 
   <!-- ============================
        “COMPARISON BEFORE/AFTER” SECTION
-       (These two figures always stay visible)
+       (These two figures are always visible)
   ============================ -->
   <section class="hero is-light is-small">
     <div class="hero-body has-text-centered">
@@ -120,12 +132,12 @@
             We provide some examples of comparison before/after our proposed strengthening procedure.
           </h2>
           <div class="content has-text-centered">
-            <img src="static/images/libero_viz_v2.png" alt="LIBERO Comparison" class="center" style="max-width: 100%; height: auto;"/>
-            <p>LIBERO</p>
+            <img src="static/images/libero_viz_v2.png" alt="LIBERO Comparison" class="responsive-img"/>
+            <p class="centered-caption">LIBERO</p>
           </div>
           <div class="content has-text-centered">
-            <img src="static/images/case23_v0.png" alt="RoboTwin Comparison" class="center" style="max-width: 100%; height: auto;"/>
-            <p>RoboTwin</p>
+            <img src="static/images/case23_v0.png" alt="RoboTwin Comparison" class="responsive-img"/>
+            <p class="centered-caption">RoboTwin</p>
           </div>
         </div>
       </div>
@@ -133,8 +145,8 @@
   </section>
 
   <!-- ============================
-       CATEGORY SWITCH BUTTONS
-       (Show Only One of the Three Strengthening Sections at a Time)
+       MAIN SWITCHER BUTTONS
+       (Show Only One Strengthening Section at a Time)
   ============================ -->
   <section class="section">
     <div class="container has-text-centered">
@@ -147,7 +159,7 @@
   </section>
 
   <!-- ============================
-       STRENGTHENING: TASK PLANNER
+       STRENGTHENING: TASK PLANNER SECTION
   ============================ -->
   <div id="taskPlannerSection" style="display: none;">
     <section class="section">
@@ -156,16 +168,18 @@
           <div class="column is-four-fifths">
             <h2 class="title is-3">We provide some examples of strengthening task planner.</h2>
             <div class="content has-text-centered">
-              <img src="static/images/language_0_web.png" alt="Sweep-Block" class="center" style="max-width: 100%; height: auto;"/>
-              <p>Sweep-Block.</p>
+              <img src="static/images/language_0_web.png" alt="Sweep-Block" class="responsive-img"/>
+              <p class="centered-caption">Sweep-Block.</p>
             </div>
             <div class="content has-text-centered">
-              <img src="static/images/language_1_web.png" alt="Push-Block" class="center" style="max-width: 100%; height: auto;"/>
-              <p>Push-Block.</p>
+              <img src="static/images/language_1_web.png" alt="Push-Block" class="responsive-img"/>
+              <p class="centered-caption">Push-Block.</p>
             </div>
             <div class="content has-text-centered">
-              <img src="static/images/language_2_web.png" alt="Complex Instruction" class="center" style="max-width: 100%; height: auto;"/>
-              <p>Put the white mug on the plate and put the chocolate pudding to the right of the plate.</p>
+              <img src="static/images/language_2_web.png" alt="Complex Instruction" class="responsive-img"/>
+              <p class="centered-caption">
+                Put the white mug on the plate and put the chocolate pudding to the right of the plate.
+              </p>
             </div>
           </div>
         </div>
@@ -174,8 +188,8 @@
   </div>
 
   <!-- ============================
-       STRENGTHENING: VISUAL PLANNER
-       (Sub-buttons to switch among multiple large figures)
+       STRENGTHENING: VISUAL PLANNER SECTION
+       (With Sub-buttons to switch among multiple large figures)
   ============================ -->
   <div id="visualPlannerSection" style="display: none;">
     <section class="section">
@@ -193,32 +207,38 @@
               <button class="button is-small is-link" data-viz="3">4</button>
             </div>
 
-            <!-- WRAPPING EACH EXAMPLE IN A “viz-block” -->
+            <!-- EACH EXAMPLE WRAPPED IN A “viz-block” WITH data-index -->
             <div class="viz-block" data-index="0" style="display: none;">
               <div class="content has-text-centered">
-                <img src="static/images/visual_0_web.png" alt="Beat-Block" class="center" style="max-width: 100%; height: auto;"/>
-                <p>Beat-Block.</p>
+                <img src="static/images/visual_0_web.png" alt="Beat-Block" class="responsive-img"/>
+                <p class="centered-caption">Beat-Block.</p>
               </div>
             </div>
 
             <div class="viz-block" data-index="1" style="display: none;">
               <div class="content has-text-centered">
-                <img src="static/images/visual_1_web.png" alt="Pick up book" class="center" style="max-width: 100%; height: auto;"/>
-                <p>Pick up the book and place it in the back compartment of the caddy.</p>
+                <img src="static/images/visual_1_web.png" alt="Pick up book" class="responsive-img"/>
+                <p class="centered-caption">
+                  Pick up the book and place it in the back compartment of the caddy.
+                </p>
               </div>
             </div>
 
             <div class="viz-block" data-index="2" style="display: none;">
               <div class="content has-text-centered">
-                <img src="static/images/visual_2_web.png" alt="Place mug and pudding" class="center" style="max-width: 100%; height: auto;"/>
-                <p>Put the white mug on the plate and put the chocolate pudding to the right of the plate.</p>
+                <img src="static/images/visual_2_web.png" alt="Place mug and pudding" class="responsive-img"/>
+                <p class="centered-caption">
+                  Put the white mug on the plate and put the chocolate pudding to the right of the plate.
+                </p>
               </div>
             </div>
 
             <div class="viz-block" data-index="3" style="display: none;">
               <div class="content has-text-centered">
-                <img src="static/images/visual_3_web.png" alt="Place bowl in drawer" class="center" style="max-width: 100%; height: auto;"/>
-                <p>Put the black bowl in the bottom drawer of the cabinet and close it.</p>
+                <img src="static/images/visual_3_web.png" alt="Place bowl in drawer" class="responsive-img"/>
+                <p class="centered-caption">
+                  Put the black bowl in the bottom drawer of the cabinet and close it.
+                </p>
               </div>
             </div>
 
@@ -229,7 +249,7 @@
   </div>
 
   <!-- ============================
-       STRENGTHENING: ACTION POLICY
+       STRENGTHENING: ACTION POLICY SECTION
   ============================ -->
   <div id="actionPolicySection" style="display: none;">
     <section class="section">
@@ -238,16 +258,20 @@
           <div class="column is-four-fifths">
             <h2 class="title is-3">We provide some examples of strengthening action policy.</h2>
             <div class="content has-text-centered">
-              <img src="static/images/action_0_web.png" alt="Push-Block Action" class="center" style="max-width: 100%; height: auto;"/>
-              <p>Push-Block.</p>
+              <img src="static/images/action_0_web.png" alt="Push-Block Action" class="responsive-img"/>
+              <p class="centered-caption">Push-Block.</p>
             </div>
             <div class="content has-text-centered">
-              <img src="static/images/action_1_web.png" alt="Put items in basket" class="center" style="max-width: 100%; height: auto;"/>
-              <p>Put both the alphabet soup and the cream cheese box in the basket.</p>
+              <img src="static/images/action_1_web.png" alt="Put items in basket" class="responsive-img"/>
+              <p class="centered-caption">
+                Put both the alphabet soup and the cream cheese box in the basket.
+              </p>
             </div>
             <div class="content has-text-centered">
-              <img src="static/images/action_2_web.png" alt="Pick up book caddy" class="center" style="max-width: 100%; height: auto;"/>
-              <p>Pick up the book and place it in the back compartment of the caddy.</p>
+              <img src="static/images/action_2_web.png" alt="Pick up book caddy" class="responsive-img"/>
+              <p class="centered-caption">
+                Pick up the book and place it in the back compartment of the caddy.
+              </p>
             </div>
           </div>
         </div>
@@ -257,49 +281,53 @@
 
   <!-- ============================
        JAVASCRIPT FOR SHOW/HIDE LOGIC
+       (Applies to All Three Sections)
   ============================ -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // BUTTONS FOR TOP-LEVEL SECTIONS
+      // 1) Grab references to the three top‐level buttons:
       const taskBtn    = document.getElementById('btnTaskPlanner');
       const visualBtn  = document.getElementById('btnVisualPlanner');
       const actionBtn  = document.getElementById('btnActionPolicy');
 
+      // 2) Grab references to each section <div>:
       const taskSection   = document.getElementById('taskPlannerSection');
       const visualSection = document.getElementById('visualPlannerSection');
       const actionSection = document.getElementById('actionPolicySection');
 
-      // HELPER TO SHOW EXACTLY ONE SECTION, HIDE OTHERS
+      // 3) Helper function: show exactly one section, hide the others
       function showSection(sectionToShow) {
         taskSection.style.display   = (sectionToShow === taskSection)   ? 'block' : 'none';
         visualSection.style.display = (sectionToShow === visualSection) ? 'block' : 'none';
         actionSection.style.display = (sectionToShow === actionSection) ? 'block' : 'none';
       }
 
-      // DEFAULT: Show “Task Planner” on page load
+      // 4) By default, show “Task Planner” on page load:
       showSection(taskSection);
 
-      // EVENT LISTENERS FOR THE THREE CATEGORY BUTTONS
+      // 5) Attach click‐listeners so each button shows its section:
       taskBtn.addEventListener('click',   () => showSection(taskSection));
       visualBtn.addEventListener('click', () => showSection(visualSection));
       actionBtn.addEventListener('click', () => showSection(actionSection));
 
-      // ========== VISUAL-PLANNER SUB-BUTTONS ==========
-      // Each <button data-viz="N"> controls the <div class="viz-block" data-index="N">
-      const vizButtons = document.querySelectorAll('[data-viz]');
-      const vizBlocks  = document.querySelectorAll('.viz-block');
+      // ========== VISUAL-PLANNER SUB‐BUTTON LOGIC ==========
+      // Grab all sub‐buttons inside Visual Planner that have data-viz attributes:
+      const vizButtons = document.querySelectorAll('#visualPlannerSection [data-viz]');
+      // Grab all the <div class="viz-block" data-index="...">
+      const vizBlocks  = document.querySelectorAll('#visualPlannerSection .viz-block');
 
-      // HELPER: hide all viz-blocks, show exactly the one matching index
+      // Helper: show exactly one viz‐block (by matching its data-index), hide others
       function showViz(index) {
         vizBlocks.forEach(function(block) {
           block.style.display = (block.getAttribute('data-index') === index) ? 'block' : 'none';
         });
       }
 
-      // If there are any viz-buttons, wire them up
+      // If there are any viz-buttons, hook them up:
       if (vizButtons.length > 0) {
-        // Show the first one by default:
+        // By default, show the first viz-block (index="0"):
         showViz('0');
+
         vizButtons.forEach(function(btn) {
           btn.addEventListener('click', function() {
             const idx = btn.getAttribute('data-viz');
@@ -307,6 +335,7 @@
           });
         });
       }
+      // ======================================================
     });
   </script>
 
