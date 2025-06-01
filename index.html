@@ -146,9 +146,9 @@
   <section class="section">
     <div class="container has-text-centered">
       <div class="buttons are-medium is-centered">
-        <button class="button is-link" id="btnTaskPlanner">Task Planner</button>
-        <button class="button is-link" id="btnVisualPlanner">Visual Planner</button>
-        <button class="button is-link" id="btnActionPolicy">Action Policy</button>
+        <button class="button is-link" id="btnTaskPlanner">Strengthening Task Planner</button>
+        <button class="button is-link" id="btnVisualPlanner">Strengthening Visual Planner</button>
+        <button class="button is-link" id="btnActionPolicy">Strengthening Action Policy</button>
       </div>
     </div>
   </section>
@@ -178,7 +178,7 @@
                      alt="Sweep-Block"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Sweep-Block.</p>
+                <p><b>Push-Block.</b> In this example, the robot was instructed to push a red block into a blue target region using a brush. Initially, it successfully picked up the brush with its left hand but failed to complete the task because it never transferred the brush to the right hand or used it to interact with the block. The original plan assumed the robot could use its right hand without explicitly including a transfer step. Based on this failure, a revised plan was generated: the robot should first pick up the brush with its left hand, then hand it over to the right hand, and finally push the red block with the brush using the right hand. This adjustment aligns better with the robot’s available skill set.</p>
               </div>
             </div>
 
@@ -188,7 +188,7 @@
                      alt="Push-Block"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Push-Block.</p>
+                <p><b>Sweep-Block.</b> In this example, a robot is assigned the task of sweeping a red block into a dustpan using a brush. The original language plan instructed the robot to pick up the brush and dustpan sequentially with the left hand before performing the sweeping. However, the execution failed because the robot attempted to grasp both tools simultaneously with the same hand, making it impossible to perform the final task. A revised plan was generated, introducing a handover step to free up the left hand for proper tool handling. This adjustment allowed for sequential tool manipulation and set up the robot to complete the task more effectively.</p>
               </div>
             </div>
 
@@ -198,7 +198,7 @@
                      alt="Complex Instruction"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Put the white mug on the plate and put the chocolate pudding to the right of the plate.</p>
+                <p><b>Put the white mug on the plate and put the chocolate pudding to the right of the plate.</b> In this example, the robot was tasked with placing a white mug on a plate and positioning a chocolate pudding to the right of the plate. The initial execution succeeded in placing the mug but failed overall when the robot’s arm knocked the mug over while trying to place the pudding, disrupting the setup. Moreover, the pudding was not successfully placed before the video ended. To address this, a revised language plan was proposed that reverses the action order—placing the pudding first, then the mug—to reduce the chance of collision and ensure successful task completion.</p>
               </div>
             </div>
 
@@ -234,7 +234,7 @@
                      alt="Beat-Block"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Beat-Block.</p>
+                <p><b>Beat-Block.</b> Information loss or occluded objects can lead to erroneous transitions within visual plans. As illustrated in  (a), the target becomes occluded by the robotic arm itself after tool pickup. Conditioned only on the current observation as initial image in (b), the world model incorrectly predicts the target block's position, causing the policy to direct the robotic arm to an incorrect location shown in the visual plan. From (c) and (d) we can see that the robotic arm is guided to a wrongly predicted position. To mitigate this failure mode, incorporating previously observed information proves crucial. Our strengthening procedure enables diffusion model to acquire knowledge of physically plausible transitions between skills. As demonstrated in (e), the red block stays in the fix position across the whole generated visual plan.</p>
               </div>
             </div>
 
@@ -244,7 +244,7 @@
                      alt="Pick Up Book"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Pick up the book and place it in the back compartment of the caddy.</p>
+                <p><b>Pick up the book and place it in the back compartment of the caddy.</b> In the original generated video as shown in (a), the robot initially moves the book toward the right compartment of the caddy but then abruptly places it in the front compartment, resulting in an implausible motion trajectory. After the strengthening process, as shown in (b), the robot successfully moves the book to the back compartment with a physically plausible motion.</p>
               </div>
             </div>
 
@@ -254,7 +254,7 @@
                      alt="Place Mug and Pudding"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Put the white mug on the plate and put the chocolate pudding to the right of the plate.</p>
+                <p><b>Put the white mug on the plate and put the chocolate pudding to the right of the plate.</b> In the original generated video as shown in (a), the robot correctly moves the white mug toward the plate but incorrectly moves the chocolate pudding across the mug to the left of the plate, resulting in noticeable visual artifacts. After the strengthening process, as shown in (b), the robot successfully moves the chocolate pudding to the right of the plate with a physically plausible motion.</p>
               </div>
             </div>
 
@@ -264,7 +264,7 @@
                      alt="Place Bowl in Drawer"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Put the black bowl in the bottom drawer of the cabinet and close it.</p>
+                <p><b>Put the black bowl in the bottom drawer of the cabinet and close it.</b> In the original generated video as shown in (a), the robot incorrectly moves the bowl toward the top of the cabinet, and the bowl subsequently disappears in later frames, leading to an implausible object motion. After the strengthening process, as shown in (b), the robot successfully places the bowl in the bottom drawer of the cabinet and closes it with a physically plausible motion.</p>
               </div>
             </div>
 
@@ -299,7 +299,7 @@
                      alt="Push-Block Action"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Push-Block.</p>
+                <p><b>Push-Block.</b> Even when the inverse dynamics model follows a correct visual plan, as shown in (a) and (b), the robot may still fail to execute certain precise actions, as illustrated in (c). To address this, we finetune the inverse dynamics model using the collected data. Following the strengthening procedure, (d) shows that the robot successfully pushes the red block.</p>
               </div>
             </div>
 
@@ -309,7 +309,7 @@
                      alt="Put Items in Basket"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Put both the alphabet soup and the cream cheese box in the basket.</p>
+                <p><b>Put both the alphabet soup and the cream cheese box in the basket.</b> In the original recorded video as shown in (a), the robot fails to move the alphabet soup toward the cabinet. After the strengthening process, as shown in (b), the robot successfully moves the the alphabet soup toward the cabinet.</p>
               </div>
             </div>
 
@@ -319,7 +319,7 @@
                      alt="Pick Up Book Caddy"
                      class="center"
                      style="max-width: 100%; height: auto;" />
-                <p>Pick up the book and place it in the back compartment of the caddy.</p>
+                <p><b>Pick up the book and place it in the back compartment of the caddy.</b> In the original recorded video as shown in (a), the robot fails to pick up the book. After the strengthening process, as shown in (b), the robot successfully pick up the book and place it in the target position.</p>
               </div>
             </div>
 
